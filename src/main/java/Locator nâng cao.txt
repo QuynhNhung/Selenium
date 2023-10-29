@@ -12,15 +12,18 @@ với cách tìm kiếm theo XPath nâng cao
 //input[@type="email" and @id="userEmail"]
 //input[@placeholder="name@example.com" or @id="userEmail"]
 6. Tìm kiếm theo ancestor
-//input[@id="userName"]/ancestor::div
+//div[@id="permanentAddress-wrapper"]/ancestor::div[@class="text-field-container"]
 7.Tìm kiếm theo descendant
-//form[@id="userForm"]/descendant::label
+//form[@id="userForm"]/descendant::label[@id="userName-label"]
 8.Tìm kiếm theo preceding
-//textarea[@id="currentAddress"]/preceding::label
+//textarea[@id="currentAddress"]/preceding::div[@id="userEmail-wrapper"]
 9.Tìm kiếm theo following
-//textarea[@id="currentAddress"]/following::label
+//textarea[@id="currentAddress"]/following::textarea[@id="permanentAddress"]
 10.Tìm kiếm theo preceding-sibling
-//div[@id="permanentAddress-wrapper"]/preceding-sibling::div
+//div[@id="permanentAddress-wrapper"]/preceding-sibling::div[@id="userName-wrapper"]
 11.Tìm kiếm theo following-sibling
-//div[@id="userEmail-wrapper"]/following-sibling::div
-
+//div[@id='userEmail-wrapper']//following-sibling::div[@id="currentAddress-wrapper"]
+12. Tìm kiếm theo parent
+//form[@id="userForm"]/parent::div
+13.Tìm kiếm theo chỉld
+//form[@id="userForm"]/child::div[@id="currentAddress-wrapper"]
