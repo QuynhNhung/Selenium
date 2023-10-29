@@ -1,0 +1,26 @@
+Thực hành tìm kiếm toàn bộ phần tử trong page (https://demoqa.com/text-box)
+với cách tìm kiếm theo XPath nâng cao
+1. Tìm kiếm theo contains()
+//input[contains(@placeholder,'Full Name')]
+2. Tìm kiếm theo starts-with()
+//textarea[starts-with(@id,'currentAddress')]
+3. Tìm kiếm theo text()
+//label[text()="Current Address"]
+4.Tìm kiếm theo normalize-space()
+//label[normalize-space()="Permanent Address"]
+5.Tìm kiếm theo toán tử OR và AND
+//input[@type="email" and @id="userEmail"]
+//input[@placeholder="name@example.com" or @id="userEmail"]
+6. Tìm kiếm theo ancestor
+//input[@id="userName"]/ancestor::div
+7.Tìm kiếm theo descendant
+//form[@id="userForm"]/descendant::label
+8.Tìm kiếm theo preceding
+//textarea[@id="currentAddress"]/preceding::label
+9.Tìm kiếm theo following
+//textarea[@id="currentAddress"]/following::label
+10.Tìm kiếm theo preceding-sibling
+//div[@id="permanentAddress-wrapper"]/preceding-sibling::div
+11.Tìm kiếm theo following-sibling
+//div[@id="userEmail-wrapper"]/following-sibling::div
+
