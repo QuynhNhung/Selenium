@@ -21,10 +21,15 @@ public class FindLocaltorUsingCSSAndXpath {
         driver.findElement(By.cssSelector("#userNumber")).sendKeys("0905111222");
         driver.findElement(By.cssSelector("label[for='hobbies-checkbox-1']")).click();
         driver.findElement(By.cssSelector("#dateOfBirthInput")).click();
-        driver.findElement(By.cssSelector("div[aria-label='Choose Thursday, July 18th, 1996']']")).click();
-        driver.findElement(By.xpath("//select[@class='react-datepicker__year-select']")).sendKeys("1996");
-        driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']")).sendKeys("July");
-
+        driver.findElement(By.cssSelector("button[aria-label='Next Month']")).click();
+        driver.findElement(By.cssSelector("button[aria-label='Previous Month']")).click();
+        driver.findElement(By.xpath("//div[@id='state']")).sendKeys("NCR");
+        driver.findElement(By.xpath("//div[@id='city']")).sendKeys("Noida");
+       // driver.findElement(By.xpath("subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3")).sendKeys("Maths");
+//        driver.findElement(By.cssSelector("div[aria-label='Choose Thursday, July 18th, 1996']']")).click();
+//        driver.findElement(By.xpath("//select[@class='react-datepicker__year-select']")).sendKeys("1996");
+//        driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']")).sendKeys("July");
+//
 
 
 
