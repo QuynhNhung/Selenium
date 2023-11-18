@@ -1,3 +1,5 @@
+package LocatorBasicnAdvanced;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -52,13 +54,13 @@ public class OptimizeLocator {
         inputLastName.sendKeys(Keys.COMMAND, "a");
         inputLastName.sendKeys(Keys.DELETE);
         inputLastName.sendKeys("Nguyen");
-
-        //Employee nickname
-        WebElement inputNickName=  driver.findElement(By.xpath("//label[normalize-space()='Nickname']/following::input[@class=\"oxd-input oxd-input--active\"]"));
-        inputNickName.click();
-        inputNickName.sendKeys(Keys.COMMAND, "a");
-        inputNickName.sendKeys(Keys.DELETE);
-        inputNickName.sendKeys("123");
+//
+//        //Employee nickname
+//        WebElement inputNickName=  driver.findElement(By.xpath("//label[normalize-space()='Nickname']/following::input[@class=\"oxd-input oxd-input--active\"]"));
+//        inputNickName.click();
+//        inputNickName.sendKeys(Keys.COMMAND, "a");
+//        inputNickName.sendKeys(Keys.DELETE);
+//        inputNickName.sendKeys("123");
 
         String DYNAMIC_INPUT ="//label[text()='%s']/following::input[position()=1]";
         String DROPDOWN = "//label[text()='%s']/following::div[position()=1]";
@@ -113,9 +115,14 @@ public class OptimizeLocator {
         inputsINNumberr.sendKeys(Keys.DELETE);
         inputsINNumberr.sendKeys("22");
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
+
+
         //handle with Nationality
         String NationalityXPath = String.format(DROPDOWN, "Nationality");
         System.out.println("XPath of Nationality: " + NationalityXPath);
+        //String DROPDOWN = "//label[text()='%s']/following::div[position()=1]";
 
         // Mở dropdown
         WebElement NationalityField = driver.findElement(By.xpath(NationalityXPath));
@@ -136,6 +143,7 @@ public class OptimizeLocator {
         inputDateOfBirth.sendKeys(Keys.DELETE);
         inputDateOfBirth.sendKeys("1996-06-06");
 
+        //handle with gender
         Thread.sleep(20);
         String DYNAMIC_INPUT_NAME_VALUE_FORM = "//input[@type='%s' and @value='%s']/following-sibling::span";
         String maleXPath = String.format(DYNAMIC_INPUT_NAME_VALUE_FORM, "radio","2");
@@ -143,7 +151,7 @@ public class OptimizeLocator {
         if (isSelected == false) {
             driver.findElement(By.xpath(maleXPath)).click();
         }
-
+// String OPTION = "//div[@role='option' and .='%s']";
         // Handle with Marital Status
         String MaritalXPath = String.format(DROPDOWN, "Marital Status");
         System.out.println("XPath of Marital Status: " + MaritalXPath);
@@ -179,6 +187,14 @@ public class OptimizeLocator {
         option2Element.click();
         driver.findElement(By.xpath("(//button[@type='submit'][normalize-space()='Save'])[2]")).click();
         // driver.close();
+
+        //Attachments
+        driver.findElement(By.xpath("//button[normalize-space()='Add']")).click();
+        driver.findElement(By.xpath("//input[@type=\"file\" and @class=\"oxd-file-input\"]")).sendKeys(System.getProperty("user.dir") + "/src/main/resources/TestDataFile/Timo.jpg");
+        driver.findElement(By.xpath("//div[@class='orangehrm-attachment']//button[@type='submit'][normalize-space()='Save']")).click();
+
+
+
 
     }
 }

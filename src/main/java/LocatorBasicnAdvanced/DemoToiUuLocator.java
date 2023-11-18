@@ -1,3 +1,5 @@
+package LocatorBasicnAdvanced;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,20 +18,20 @@ public class DemoToiUuLocator {
         //Mở trang https://demoqa.com/automation-practice-form
         driver.get("https://demoqa.com/automation-practice-form");
 
+        //define locator chung
+        String DYNAMIC_INPUT_NAME = "//input[@id='%s']";
         //handle with first name
-
-        String DYNAMIC_INPUT_NAME_EMAIL = "//input[@placeholder='%s']";
-        String firstNameXpath = String.format(DYNAMIC_INPUT_NAME_EMAIL,"First Name");
+        String firstNameXpath = String.format(DYNAMIC_INPUT_NAME,"firstName");
         driver.findElement(By.xpath(firstNameXpath)).sendKeys("Nhung");
 
         //handle with Last Name
 
-        String lastNameXpath = String.format(DYNAMIC_INPUT_NAME_EMAIL,"Last Name");
+        String lastNameXpath = String.format(DYNAMIC_INPUT_NAME,"lastName");
         driver.findElement(By.xpath(lastNameXpath)).sendKeys("Nguyen");
 
         //handle with email
 
-        String emailXpath = String.format(DYNAMIC_INPUT_NAME_EMAIL,"Email");
+        String emailXpath = String.format(DYNAMIC_INPUT_NAME,"userEmail");
         driver.findElement(By.xpath(emailXpath)).sendKeys("Nhung@gmail.com");
 
 
@@ -59,7 +61,10 @@ public class DemoToiUuLocator {
         WebElement dropdown1=driver.findElement(By.id("subjectsInput"));
         dropdown1.sendKeys("Chemistry");
         dropdown1.sendKeys(Keys.ENTER);
+        //handle with Picture
         driver.findElement(By.xpath("//input[@id='uploadPicture']")).sendKeys(System.getProperty("user.dir") + "/src/main/resources/TestDataFile/Timo.jpg");
+        //handle with current addres
+
         // driver.quit();
 
 
