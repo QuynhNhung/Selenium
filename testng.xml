@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Maven_Page_Object_Model" verbose="1">
+    <test thread-count="5" name="FirefoxTest">
+        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="appURL" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"></parameter>
+        <classes>
+            <class name="LuyenTap2.testcases.UserAccessTest">
+            </class>
+        </classes>
+    </test>
+    <test thread-count="5" name="ChromeTest">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="appURL" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"></parameter>
+        <classes>
+            <class name="LuyenTap2.testcases.UserAccessTest">
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
